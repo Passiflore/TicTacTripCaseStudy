@@ -5,6 +5,10 @@
   src: url("../src/assets/fonts/Achemine/achemine_bold.ttf");
 }
 
+*{
+  font-family: "AchemineBold";
+}
+
 
 .searchBar{
   display: flex;
@@ -21,10 +25,18 @@
   color: #ffffff;
   line-height: 2.75rem;
 }
-.searchBar input{
-  position: relative;
+
+.seachBarInput{
+  width: 80vw;
+  justify-content: space-between;
+  display: flex;
   background-color: white;
-  width: 80%;
+  border-radius: 2rem;
+  position: relative;
+}
+.searchBar input{
+  width: 150vw;
+  background-color: white;
   padding: 0 1.5rem;
   border: none;
   border-radius: 2rem;
@@ -33,15 +45,39 @@
   min-height: 3.5rem;
 }
 
-.searchBar ul, h1{
+.searchBar h1{
   color: #ffffff;
 }
 
 .searchButton{
   position: absolute;
+  right:0px;
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 2rem;
   background-color: #8de8fe;
   border: none;
+  transition: ease .25s;
+}
+
+.searchButton:hover{
+  background-color: #40cdf2;
+}
+
+ul{
+  width: 80vw;
+  padding: 0;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+li{
+  list-style-type: none;
+  width:100%;
+  padding:20px;
+}
+li:hover{
+background-color: #e5e5ef;
 }
