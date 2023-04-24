@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    background-color: #0c131f;
+}
+.headerLogo{
+    width:27vw;
+    padding:0 5vw
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    min-width:30em ;
+}
+nav h5{
+    margin-left:5px;
+    font-size: 17px;
+    font-family: "AvenirMedium";
+}
+
+
+.headerNavButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f3f3f4;
+}
+
+.headerNavButton:hover {
+    color: #8de8fe;
+    border-bottom: 2px solid #8de8fe;
+}
+
+.logoSncf{
+    height:4rem;
+}

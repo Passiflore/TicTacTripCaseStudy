@@ -1,0 +1,58 @@
+.cardsParagraphContainer{
+    padding:30px
+}
+
+.cardsParagraphTitle{
+    font-size: 1.5rem;
+    font-family: "AvenirMedium";
+}
+
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2vw;
+    width: 100%;
+}
+
+.card{
+    width:30vw;
+    max-width:260px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: ease 0.2s;
+    font-family: "AvenirMedium";
+    color:#0c131f;
+}
+
+.card:hover{
+    background-color: #e5e5ef;
+    transition: ease 0.2s;
+}
+
+.card img{
+    width:30vw;
+    max-width: 270px;
+    height:180px;
+    object-fit: cover;
+}
+
+.cardText{
+    padding:0 15px;
+}
+
+.cardTitle{
+    font-family: "AvenirHeavy";
+    margin-top: 24px;
+}
+.cardContent{
+    color:#494e57;
+    font-size: 15px;
+    line-height: 22px;
+}
+.cardLink{
+    display: flex;
+    justify-content: center;
+    border-top:1px solid #f3f3f8 ;
+    text-align: center;
+}

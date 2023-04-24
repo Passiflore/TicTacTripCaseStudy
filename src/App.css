@@ -1,83 +1,40 @@
-
-
+body {
+  margin: 0;
+  padding:0;
+}
 @font-face {
   font-family: "AchemineBold";
   src: url("../src/assets/fonts/Achemine/achemine_bold.ttf");
 }
-
 *{
-  font-family: "AchemineBold";
+@font-face {
+  font-family: "AvenirMedium";
+  src: url("../src/assets/fonts/Arial.TTF");
 }
 
+@font-face {
+  font-family: "AvenirHeavy";
+  src: url("../src/assets/fonts/Avenir/AvenirHeavy.ttf");
+}
 
-.searchBar{
+/* *{
+  font-family: "AchemineBold";
+} */
+
+.headerOfferImg{
+  width:100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height:100vh;
+}
+.headerOfferImg img{
+  max-height: 300px;
+  min-height: 100px;
+  height: auto;
+  width: 90vw;
 }
 
-.seachBarTitle{
-  text-align: center;
-  font-family: "AchemineBold";
-  color: #ffffff;
-  line-height: 2.75rem;
-}
-
-.seachBarInput{
-  width: 80vw;
-  justify-content: space-between;
-  display: flex;
-  background-color: white;
-  border-radius: 2rem;
-  position: relative;
-}
-.searchBar input{
-  width: 150vw;
-  background-color: white;
-  padding: 0 1.5rem;
-  border: none;
-  border-radius: 2rem;
-  font-size: 1rem;
-  color: #0c131f;
-  min-height: 3.5rem;
-}
-
-.searchBar h1{
-  color: #ffffff;
-}
-
-.searchButton{
-  position: absolute;
-  right:0px;
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 2rem;
-  background-color: #8de8fe;
-  border: none;
-  transition: ease .25s;
-}
-
-.searchButton:hover{
-  background-color: #40cdf2;
-}
-
-ul{
-  width: 80vw;
-  padding: 0;
-  background-color: #ffffff;
-  color: black;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-li{
-  list-style-type: none;
+.homeBody{
   width:100%;
-  padding:20px;
-}
-li:hover{
-background-color: #e5e5ef;
+  margin: 0;
+  background-color: #F3F3F8;
 }
