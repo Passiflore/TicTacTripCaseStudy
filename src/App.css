@@ -1,12 +1,7 @@
-body {
-  margin: 0;
-  padding:0;
-}
 @font-face {
   font-family: "AchemineBold";
   src: url("../src/assets/fonts/Achemine/achemine_bold.ttf");
 }
-*{
 @font-face {
   font-family: "AvenirMedium";
   src: url("../src/assets/fonts/Arial.TTF");
@@ -17,10 +12,6 @@ body {
   src: url("../src/assets/fonts/Avenir/AvenirHeavy.ttf");
 }
 
-/* *{
-  font-family: "AchemineBold";
-} */
-
 .headerOfferImg{
   width:100%;
   display: flex;
@@ -29,12 +20,40 @@ body {
 .headerOfferImg img{
   max-height: 300px;
   min-height: 100px;
-  height: auto;
-  width: 90vw;
+  /* height: auto; */
+  width: auto;
 }
 
 .homeBody{
   width:100%;
   margin: 0;
   background-color: #F3F3F8;
+}
+
+.navLineTransport{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  height:53px;
+  color: #127996;
+  font-family: "AvenirMedium";
+  font-size: 13px;
+  background-color: #FFFFFF;
+  transition: 0.2s;
+}
+
+
+.navLineTransport a:hover{
+  color: #006179
+}
+.navLineTransport a {
+  display: flex;
+  align-items: center;
+}
+
+.navLineTransport a svg{
+  rotate: 90deg;
+  margin-left:8px
 }
