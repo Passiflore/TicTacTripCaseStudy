@@ -1,5 +1,5 @@
 
-.searchBar{
+.searchBarComponent{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
     position: relative;
 }
 
-.searchBar input{
+.searchBarComponent input{
     width: 150vw;
     background-color: white;
     padding: 0 1.5rem;
@@ -37,7 +37,7 @@
     min-height: 3.5rem;
 }
   
-.searchBar h1{
+.searchBarComponent h1{
     color: #ffffff;
 }
   

@@ -1,5 +1,6 @@
 import '../styles/SearchBar.css'
 import React, {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom';
 
 function SearchBar() {
     const [searchWord, setSearchWord] = useState("");
@@ -31,7 +32,7 @@ console.log(town)
 
 
     return (
-    <div className="searchBar">
+    <div className="searchBarComponent">
         <h1 className="seachBarTitle">Recherchez vos voyages, trajets courts et bien plus encore...</h1>
         <div className="seachBarInput">
             <input
@@ -48,7 +49,9 @@ console.log(town)
             <ul>
             {town.map(t => (
                 <li key={t.local_name}>
-                <a>{t.local_name}</a>
+                    <Link to='/searchPage'>
+                        <a>{t.local_name}</a>
+                    </Link>
                 </li>
             ))}
             </ul>
