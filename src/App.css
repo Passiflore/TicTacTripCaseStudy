@@ -4,13 +4,14 @@
 }
 @font-face {
   font-family: "AvenirMedium";
-  src: url("../public/assets/fonts/Arial.TTF");
+  src: url("../public/assets/fonts/Avenir/AvenirMedium.ttf");
 }
 
 @font-face {
   font-family: "AvenirHeavy";
   src: url("../public/assets/fonts/Avenir/AvenirHeavy.ttf");
 }
+
 
 
 .headerOfferImg{
