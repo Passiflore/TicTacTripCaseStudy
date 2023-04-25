@@ -3,7 +3,7 @@
 }
 
 .cardsParagraphTitle{
-    font-size: 1.5rem;
+    font-size: 24px;
     font-family: "AvenirMedium";
 }
 
@@ -30,10 +30,6 @@
 .cardSmall{
     width:23%
 }
-
-/* .cardSmall:not(:last-child) {
-    margin-right: 30px;
-} */
 
 @keyframes fadeIn {
     0% {
@@ -112,3 +108,35 @@
     display: flex;
     justify-content: start;
 }
+@media screen and (max-width: 1200px) {
+
+    .cardContent{
+        height: calc(400px - 20vw);
+    }
+    .cardTitle {
+        height: 65px;
+    }
+}
+@media screen and (max-width: 830px) {
+
+    .cardContainer{
+        flex-direction: column;
+    }
+    .cardSmall{
+        width: 100%;
+        margin-bottom: 45px;
+    }
+    .cardTitle{
+        height: auto;
+        font-size: 14px;
+    }
+    .cardContent{
+        height: auto;
+        font-size: 12px;
+    }
+    .cardsParagraphTitle{
+        font-size: 18px;
+        font-family: "AvenirMedium";
+    }
+}
+

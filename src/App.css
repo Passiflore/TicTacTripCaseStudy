@@ -42,6 +42,7 @@
   font-size: 13px;
   background-color: #FFFFFF;
   transition: 0.2s;
+  overflow-x: scroll;
 }
 
 
@@ -51,9 +52,30 @@
 .navLineTransport a {
   display: flex;
   align-items: center;
+  font-size: 13px;
 }
 
 .navLineTransport a svg{
   rotate: 90deg;
   margin-left:8px
+}
+
+@media screen and (max-width: 750px) {
+
+  .navLineTransport{
+    gap: 3vw;
+  }
+  .navLineTransport a {
+    font-size: 12px;
+  }
+  .navLineTransport a svg{
+    margin-left:5px
+  }
+}
+@media screen and (max-width: 620px) {
+
+  .seachBarTitle{
+      font-size:18px;
+      line-height: 28px;
+  }
 }
