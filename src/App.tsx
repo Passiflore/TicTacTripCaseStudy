@@ -1,7 +1,7 @@
 import './App.css'
 import React, {useEffect, useState} from 'react'
 import SearchBar from './components/SearchBar'
-import Header from './components/Hearder'
+import Header from './components/Header'
 import Cards from './components/Cards'
 
 function App() {

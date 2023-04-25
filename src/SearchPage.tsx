@@ -1,5 +1,5 @@
 import './SearchPage.css'
-import Header from './components/Hearder'
+import Header from './components/Header'
 import React, {useEffect, useState} from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom';
 
@@ -20,6 +20,18 @@ function SearchPage() {
     }, [location.state.arrival])
     console.log(town)
 
+    function departure(departure: string | undefined): string | undefined {
+        if (departure) {
+            return departure;
+        }
+    }
+
+    function arrival(arrival: string | undefined): string | undefined {
+    if (arrival) {
+        return arrival;
+    }
+    }
+
     return (
         <>
             <Header></Header>
@@ -28,13 +40,11 @@ function SearchPage() {
                 <div className='searchBar'>
                     <div className='searchPageInput departureInput'>
                         Départ :
-                        <input placeholder="D'où partons-nous ?"></input>
+                        <input placeholder="D'où partons-nous ?" defaultValue={location.state.departure}></input>
                     </div>
                     <div className='searchPageInput arrivalInput'>
                         Arrivée :
-                        <input placeholder="Où allons nous ?">
-                        </input>
-                        {location.state.arrival}
+                        <input placeholder="Où allons nous ?" defaultValue={location.state.arrival}></input>
                     </div>
                 </div>
                 {town.length > 0 && (

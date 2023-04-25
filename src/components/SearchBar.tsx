@@ -51,16 +51,14 @@ useEffect(() =>{
 
 
 useEffect(() =>{
+
     if (searchWord !== "") {
-    fetch(`https://api.comparatrip.eu/cities/popular/from/${searchWord}/5`)
-        .then(response => response.json())
+        fetch(`https://api.comparatrip.eu/cities/popular/from/${searchWord.toLowerCase()}/5`)
+        .then(res => res.json())
         .then(data => setTownDeparture(data))
-        .catch(error => console.error(error));
-    } else {
-        setTownDeparture([]);
+        .catch(err => {setTownDeparture([]); console.log(err)})
     }
-}, [searchWord])
-console.log(townDeparture)
+}, [town, searchWord])
 
 
 useEffect(() =>{
@@ -104,18 +102,18 @@ useEffect(() =>{
                 </li>
             ))}
             <p className='textSeparator'>Départ de :</p>
-            {townDeparture.map(t => (
+            {townDeparture.length > 0 ? townDeparture.map(t => (
                 <li key={t.local_name}>
-                    {/* <Link 
+                    <Link 
                         to=
                             '/searchPage'
                         state = {{
-                            arrival: t.unique_name
-                    }}> */}
+                            departure: t.unique_name
+                    }}>
                         <span>{t.local_name}</span>
-                    {/* </Link> */}
+                    </Link>
                 </li>
-            ))}
+            )): null}
             </ul>
         )} 
         {town.length === 0 && isSearchBarActive == true &&(
@@ -123,14 +121,15 @@ useEffect(() =>{
                 <p className='textSeparator'>Destinations populaires :</p>
                 {townPopular.map(t => (
                     <li key={t.local_name}>
-                        {/* <Link 
+                        <Link 
                             to=
                                 '/searchPage'
                             state = {{
                                 arrival: t.unique_name
-                        }}> */}
+                                
+                        }}>
                             <span>{t.local_name}</span>
-                        {/* </Link> */}
+                        </Link>
                     </li>
                 ))}
             </ul>

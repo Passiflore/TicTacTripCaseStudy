@@ -18,12 +18,12 @@
   
 .seachBarInput{
     /* position: sticky; */
+    position: relative;
     width: 80vw;
     justify-content: space-between;
     display: flex;
     background-color: white;
     border-radius: 2rem;
-    position: relative;
     z-index: 2;
 }
 
@@ -80,6 +80,8 @@
 
   
 ul{
+    position: absolute;
+    top:530px;
     width: 80vw;
     padding: 0;
     background-color: #ffffff;
@@ -89,7 +91,7 @@ ul{
     z-index: 2;
     font-family: "AvenirHeavy";
 }
-  
+
 li{
     list-style-type: none;
     width:100%;
