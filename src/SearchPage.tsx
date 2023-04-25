@@ -1,7 +1,7 @@
 import './SearchPage.css'
 import Header from './components/Header'
-import React, {useEffect, useState, useCallback, ChangeEvent} from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom';
+import {useEffect, useState, useCallback, ChangeEvent} from 'react'
+import { useLocation } from 'react-router-dom';
 
 function SearchPage() {
     const location = useLocation();
@@ -76,29 +76,18 @@ function SearchPage() {
         if (departure !== ""){
             fetch(`https://api.comparatrip.eu/cities/popular/from/${departure.toLowerCase()}/5`)
             .then(response => response.json())
-            .then(data => setTown(data))
+            .then(data => setTownPopular(data))
             .catch(error => console.error(error));
         }else{
             setTown([]);
         }
         }, [departure])
 
-    // useEffect(() =>{
-    //     if (searchWord == "") {
-    //     fetch(`https://api.comparatrip.eu/cities/popular/5 `)
-    //         .then(response => response.json())
-    //         .then(data => setTownPopular(data))
-    //         .catch(error => console.error(error));
-    //     } else {
-    //         setTownPopular([]);
-    //     }
-    // }, [searchWord])
-
     return (
         <>
             <Header></Header>
             <h4 className='TitleSearchPage'>Rechercher</h4>
-            <body className='bodySearchPage'>
+            <div className='bodySearchPage'>
                 <div className='searchBar'>
                     <div className='searchPageInput departureInput'>
                         Départ :
@@ -157,7 +146,7 @@ function SearchPage() {
                     </ul>
                     )
                 }
-            </body>
+            </div>
         </>
     )
 }

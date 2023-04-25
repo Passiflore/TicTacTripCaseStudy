@@ -1,5 +1,5 @@
 import '../styles/Cards.css'
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import peopleImg from "../assets/img/cardsImg/people.jpg"
 import crystalImg from "../assets/img/cardsImg/crystal.jpg"
 import phoneImg from "../assets/img/cardsImg/phone.jpg"
