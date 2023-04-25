@@ -9,7 +9,7 @@ function App() {
     <>
       <Header></Header>
       <a className='headerOfferImg'> 
-        <img src="../src/assets/img/header.jpg"></img>
+        <img src="../public/assets/img/header.jpg"></img>
       </a>
       <SearchBar></SearchBar>
       <div className="homeBody">

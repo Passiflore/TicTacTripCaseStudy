@@ -1,10 +1,10 @@
 import '../styles/Cards.css'
 import {useEffect, useState} from 'react'
-import peopleImg from "../assets/img/cardsImg/people.jpg"
-import crystalImg from "../assets/img/cardsImg/crystal.jpg"
-import phoneImg from "../assets/img/cardsImg/phone.jpg"
-import dogImg from "../assets/img/cardsImg/dog.jpg"
-import retrouverImg from "../assets/img/cardsImg/retrouver.jpg"
+import peopleImg from "../../public/assets/img/cardsImg/people.jpg"
+import crystalImg from "../../public/assets/img/cardsImg/crystal.jpg"
+import phoneImg from "../../public/assets/img/cardsImg/phone.jpg"
+import dogImg from "../../public/assets/img/cardsImg/dog.jpg"
+import retrouverImg from "../../public/assets/img/cardsImg/retrouver.jpg"
 
 function Cards() {
 

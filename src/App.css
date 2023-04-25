@@ -1,15 +1,15 @@
 @font-face {
   font-family: "AchemineBold";
-  src: url("../src/assets/fonts/Achemine/achemine_bold.ttf");
+  src: url("../public/assets/fonts/Achemine/achemine_bold.ttf");
 }
 @font-face {
   font-family: "AvenirMedium";
-  src: url("../src/assets/fonts/Arial.TTF");
+  src: url("../public/assets/fonts/Arial.TTF");
 }
 
 @font-face {
   font-family: "AvenirHeavy";
-  src: url("../src/assets/fonts/Avenir/AvenirHeavy.ttf");
+  src: url("../public/assets/fonts/Avenir/AvenirHeavy.ttf");
 }
 
 

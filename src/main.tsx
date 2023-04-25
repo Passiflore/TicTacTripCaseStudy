@@ -13,7 +13,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="/searchPage" element={<SearchPage />} />
           </Routes>
         </BrowserRouter>
-    {/* <App /> */}
-    {/* <SearchPage /> */}
   </React.StrictMode>,
 )
