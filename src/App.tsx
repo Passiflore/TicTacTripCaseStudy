@@ -2,6 +2,7 @@ import './App.css'
 import SearchBar from './components/SearchBar'
 import Header from './components/Header'
 import Cards from './components/Cards'
+import headerImg from '../public/assets/img/header.jpg'
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <>
       <Header></Header>
       <a className='headerOfferImg'> 
-        <img src="../public/assets/img/header.jpg"></img>
+        <img src={headerImg}></img>
       </a>
       <SearchBar></SearchBar>
       <div className="homeBody">
