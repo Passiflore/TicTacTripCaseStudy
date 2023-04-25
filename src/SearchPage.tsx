@@ -5,42 +5,59 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 
 function SearchPage() {
     const location = useLocation();
-    console.log(location.state.arrival)
+    const [searchWord, setSearchWord] = useState("");
     const [town, setTown] = useState<any[]>([]);
+    const [townDeparture, setTownDeparture] = useState<any[]>([]);
+    const [townPopular, setTownPopular] = useState<any[]>([]);
+
+    function searchState(test: string){
+        setSearchWord(test)
+    }
 
     useEffect(() =>{
-        // if (searchWord !== "") {
+        if (searchWord !== "") {
+        fetch(`https://api.comparatrip.eu/cities/autocomplete/?q=${searchWord}`)
+            .then(response => response.json())
+            .then(data => setTown(data))
+            .catch(error => console.error(error));
+        } else {
+            setTown([]);
+        }
+    }, [searchWord])
+
+    useEffect(() =>{
         fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.arrival}/5`)
             .then(response => response.json())
             .then(data => setTown(data))
             .catch(error => console.error(error));
-        // } else {
-        //     setTown([]);
-        // }
     }, [location.state.arrival])
     console.log(town)
 
-    function departure(departure: string | undefined): string | undefined {
-        if (departure) {
-            return departure;
+    useEffect(() =>{
+        if (searchWord == "") {
+        fetch(`https://api.comparatrip.eu/cities/popular/5 `)
+            .then(response => response.json())
+            .then(data => setTownPopular(data))
+            .catch(error => console.error(error));
+        } else {
+            setTownPopular([]);
         }
-    }
-
-    function arrival(arrival: string | undefined): string | undefined {
-    if (arrival) {
-        return arrival;
-    }
-    }
+    }, [searchWord])
 
     return (
         <>
             <Header></Header>
-            <h4>Rechercher</h4>
+            <h4 className='TitleSearchPage'>Rechercher</h4>
             <body className='bodySearchPage'>
                 <div className='searchBar'>
                     <div className='searchPageInput departureInput'>
                         Départ :
-                        <input placeholder="D'où partons-nous ?" defaultValue={location.state.departure}></input>
+                        <input 
+                        type= "text"
+                        placeholder="D'où partons-nous ?" 
+                        defaultValue={location.state.departure}
+                        onChange= {event => {searchState(event.target.value)}}
+                        ></input>
                     </div>
                     <div className='searchPageInput arrivalInput'>
                         Arrivée :
@@ -51,14 +68,7 @@ function SearchPage() {
                     <ul>
                     {town.map(t => (
                         <li key={t.unique_name}>
-                            <Link 
-                                to=
-                                    '/searchPage'
-                                state = {{
-                                    arrival: t.unique_name
-                            }}>
-                                <a>{t.local_name}</a>
-                            </Link>
+                            <span>{t.local_name}</span>
                         </li>
                     ))}
                     </ul>

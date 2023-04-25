@@ -78,10 +78,8 @@
     color: black;
 }
 
-  
 ul{
     position: absolute;
-    top:530px;
     width: 80vw;
     padding: 0;
     background-color: #ffffff;
@@ -90,6 +88,10 @@ ul{
     overflow: hidden;
     z-index: 2;
     font-family: "AvenirHeavy";
+}
+
+.searchBarComponent ul{
+    top:530px;
 }
 
 li{
