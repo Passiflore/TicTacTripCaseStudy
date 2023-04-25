@@ -45,6 +45,7 @@ function SearchPage() {
             .then(response => response.json())
             .then(data => setTown(data))
             .catch(error => console.error(error));
+            console.log(searchWord.length, "arrival")
         } else {
             setTown([]);
         }
@@ -70,7 +71,7 @@ function SearchPage() {
         } else {
             setTownArrival([]);
         }
-    }, [townArrival, arrival])
+    }, [arrival])
 
     useEffect(() =>{
         if (departure !== ""){
@@ -125,7 +126,7 @@ function SearchPage() {
                         ))}
                     </ul>
                     )}
-                    {townArrival.length === 0 &&(
+                    {searchWordArrival.length <= 1 &&(
                     <ul>
                         <p className='textSeparator'>Destinations populaires :</p>
                         {townArrivalPopular.map(t => (
@@ -135,7 +136,7 @@ function SearchPage() {
                         ))}
                     </ul>
                     )}
-                    {town.length === 0 &&(
+                    {searchWord.length <= 1 &&(
                     <ul>
                         <p className='textSeparator'>Destinations populaires :</p>
                         {townPopular.map(t => (
