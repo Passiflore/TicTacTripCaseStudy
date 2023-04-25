@@ -12,18 +12,32 @@
     flex-wrap: wrap;
     gap:2vw;
     width: 100%;
+    opacity: 1;
+    transition: ease 0.2;
 }
 
 .card{
+    opacity: 0; /* La carte est invisible au départ */
     width:30vw;
     max-width:260px;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
     transition: ease 0.2s;
+    animation: fadeIn 0.7s ease-in-out forwards;
     font-family: "AvenirMedium";
     color:#0c131f;
 }
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      margin-top: 25px;
+    }
+    100% {
+      opacity: 1;
+      margin-top: 0px;
+    }
+  }
 
 .card:hover{
     background-color: #e5e5ef;

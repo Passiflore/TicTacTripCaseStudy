@@ -12,6 +12,7 @@
   src: url("../src/assets/fonts/Avenir/AvenirHeavy.ttf");
 }
 
+
 .headerOfferImg{
   width:100%;
   display: flex;
@@ -34,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 4vw;
   width: 100%;
   height:53px;
   color: #127996;
