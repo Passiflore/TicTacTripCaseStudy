@@ -34,6 +34,8 @@ const SearchBar: React.FC = () => {
 
 
     const [town, setTown] = useState<any[]>([]);
+    const [townDeparture, setTownDeparture] = useState<any[]>([]);
+    const [townPopular, setTownPopular] = useState<any[]>([]);
 
   //fetch l'api en fonction de la ville 
 useEffect(() =>{
@@ -46,9 +48,31 @@ useEffect(() =>{
         setTown([]);
     }
 }, [searchWord])
-console.log(town)
 
 
+useEffect(() =>{
+    if (searchWord !== "") {
+    fetch(`https://api.comparatrip.eu/cities/popular/from/${searchWord}/5`)
+        .then(response => response.json())
+        .then(data => setTownDeparture(data))
+        .catch(error => console.error(error));
+    } else {
+        setTownDeparture([]);
+    }
+}, [searchWord])
+console.log(townDeparture)
+
+
+useEffect(() =>{
+    if (searchWord == "") {
+    fetch(`https://api.comparatrip.eu/cities/popular/5 `)
+        .then(response => response.json())
+        .then(data => setTownPopular(data))
+        .catch(error => console.error(error));
+    } else {
+        setTownPopular([]);
+    }
+}, [searchWord])
 
     return (
     <div className="searchBarComponent">
@@ -69,21 +93,49 @@ console.log(town)
             <ul>
             {town.map(t => (
                 <li key={t.local_name}>
-                    {/* <Link to='/searchPage'>
-                        <a>{t.local_name}</a>
-                    </Link> */}
                     <Link 
                         to=
                             '/searchPage'
                         state = {{
                             arrival: t.unique_name
                     }}>
-                        <a>{t.local_name}</a>
+                        <span>{t.local_name}</span>
                     </Link>
                 </li>
             ))}
+            <p className='textSeparator'>Départ de :</p>
+            {townDeparture.map(t => (
+                <li key={t.local_name}>
+                    {/* <Link 
+                        to=
+                            '/searchPage'
+                        state = {{
+                            arrival: t.unique_name
+                    }}> */}
+                        <span>{t.local_name}</span>
+                    {/* </Link> */}
+                </li>
+            ))}
             </ul>
-        )}
+        )} 
+        {town.length === 0 && isSearchBarActive == true &&(
+            <ul>
+                <p className='textSeparator'>Destinations populaires :</p>
+                {townPopular.map(t => (
+                    <li key={t.local_name}>
+                        {/* <Link 
+                            to=
+                                '/searchPage'
+                            state = {{
+                                arrival: t.unique_name
+                        }}> */}
+                            <span>{t.local_name}</span>
+                        {/* </Link> */}
+                    </li>
+                ))}
+            </ul>
+            )
+        }
     </div>
     )
 }

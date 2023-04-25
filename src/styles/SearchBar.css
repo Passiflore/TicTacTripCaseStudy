@@ -73,6 +73,11 @@
     display: block;
 }
 
+.searchBarComponent a{
+    text-decoration: none;
+    color: black;
+}
+
   
 ul{
     width: 80vw;
@@ -82,6 +87,7 @@ ul{
     border-radius: 10px;
     overflow: hidden;
     z-index: 2;
+    font-family: "AvenirHeavy";
 }
   
 li{
@@ -92,4 +98,11 @@ li{
 
 li:hover{
     background-color: #e5e5ef;
+}
+
+.textSeparator{
+    font-family: "AvenirMedium";
+    font-size: 13px;
+    color: #494e57;
+    padding: 15px 0 0 15px;
 }
