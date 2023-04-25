@@ -27,8 +27,8 @@ const SearchBar: React.FC = () => {
 
 
     // récolter ce qu'écrit l'utilisateur
-    function searchState(test: string){
-        setSearchWord(test)
+    function searchState(str: string){
+        setSearchWord(str)
     }
 
 
