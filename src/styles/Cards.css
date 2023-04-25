@@ -1,5 +1,5 @@
 .cardsParagraphContainer{
-    padding:30px
+    padding: 30px 6vw;
 }
 
 .cardsParagraphTitle{
@@ -10,6 +10,7 @@
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: space-between; */
     gap:2vw;
     width: 100%;
     opacity: 1;
@@ -18,8 +19,6 @@
 
 .card{
     opacity: 0; /* La carte est invisible au départ */
-    width:30vw;
-    max-width:260px;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -28,6 +27,12 @@
     font-family: "AvenirMedium";
     color:#0c131f;
 }
+
+.cardSmall{
+    width:30vw;
+    max-width:260px;
+}
+
 @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -44,7 +49,7 @@
     transition: ease 0.2s;
 }
 
-.card img{
+.cardSmall img{
     width:30vw;
     max-width: 270px;
     height:180px;
@@ -60,23 +65,48 @@
     margin-top: 24px;
 }
 .cardContent{
-    height: 130px;
+    /* height: 130px; */
     color:#494e57;
     font-size: 15px;
     line-height: 22px;
 }
+
 .cardLink{
-    display: flex;
-    justify-content: center;
-    padding: 16px 0;
     align-items: end;
-    border-top:1px solid #f3f3f8 ;
     text-align: center;
     font-size: 13px;
     color:#127996;
 }
 
+.cardSmall .cardLink{
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+    border-top:1px solid #f3f3f8 ;
+}
+
 .cardLink svg{
     rotate: 90deg;
     margin-left: 10px;
+}
+
+.cardBig{
+    display: flex;
+    margin-top: 72px !important;
+    width: 100%;
+    height: 28vw;
+    max-height: 300px;
+}
+
+.cardBig .cardTitle{
+    font-size: 24px; 
+}
+
+.cardBig .cardContent{
+    font-size: 16px; 
+}
+
+.cardBig .cardLink{
+    display: flex;
+    justify-content: start;
 }
