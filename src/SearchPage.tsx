@@ -13,6 +13,11 @@ function SearchPage() {
     function searchState(test: string){
         setSearchWord(test)
     }
+    function capitalize(str : string){
+        if (str){
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+    }
 
     useEffect(() =>{
         if (searchWord !== "") {
@@ -55,13 +60,13 @@ function SearchPage() {
                         <input 
                         type= "text"
                         placeholder="D'où partons-nous ?" 
-                        defaultValue={location.state.departure}
+                        defaultValue={capitalize(location.state.departure)}
                         onChange= {event => {searchState(event.target.value)}}
                         ></input>
                     </div>
                     <div className='searchPageInput arrivalInput'>
                         Arrivée :
-                        <input placeholder="Où allons nous ?" defaultValue={location.state.arrival}></input>
+                        <input placeholder="Où allons nous ?" defaultValue={capitalize(location.state.arrival)}></input>
                     </div>
                 </div>
                 {town.length > 0 && (
