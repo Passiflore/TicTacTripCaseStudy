@@ -138,5 +138,25 @@
         font-size: 18px;
         font-family: "AvenirMedium";
     }
+    .cardBig{
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        margin-top: 0px !important;
+        height: auto;
+        max-height: fit-content;
+    }
+    .cardBig .cardTitle{
+        font-size: 14px;
+    }
+    .cardBig .cardContent{
+        font-size: 12px;
+    }
+    .cardBig .cardLink{
+        display: flex;
+        justify-content: center;
+        padding: 16px 0;
+        border-top: 1px solid #f3f3f8;
+    }
 }
 
