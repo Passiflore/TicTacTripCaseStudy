@@ -1,3 +1,11 @@
+:root {
+  --main-color: hotpink;
+  --white-color: #FFFFFF;
+  --gray-color: #F3F3F8;
+  --blue-color: #127996;
+  --pane-padding: 5px 42px;
+}
+
 @font-face {
   font-family: "AchemineBold";
   src: url("../public/assets/fonts/Achemine/achemine_bold.ttf");
@@ -28,7 +36,7 @@
 .homeBody{
   width:100%;
   margin: 0;
-  background-color: #F3F3F8;
+  background-color: var(--gray-color);
 }
 
 .navLineTransport{
@@ -38,10 +46,10 @@
   gap: 4vw;
   width: 100%;
   height:53px;
-  color: #127996;
+  color: var(--blue-color);
   font-family: "AvenirMedium";
   font-size: 13px;
-  background-color: #FFFFFF;
+  background-color: var(--white-color);
   transition: 0.2s;
   overflow-x: scroll;
 }

@@ -1,5 +1,5 @@
 .bodySearchPage{
-    background-color: #f3f3f8;
+    background-color: var(--gray-color);
     height: 750px;
     margin:0;
     padding: 30px 6vw;
@@ -7,7 +7,7 @@
 }
 
 .TitleSearchPage{
-    color:#FFF;
+    color:var(--white-color);
     padding:0 80px;
     font-family: "AchemineBold";
     font-size: 24px;
@@ -15,7 +15,7 @@
 
 .searchBar{
     max-width:80vw;
-    background-color: #FFF;
+    background-color: var(--white-color);
     border-radius: 14px;
 }
 
@@ -28,7 +28,7 @@
 
 .searchPageInput{
     padding:11px 17px;
-    border-bottom:2px solid #f3f3f8;
+    border-bottom:2px solid var(--gray-color);
 }
 
 @media screen and (max-width: 600px) {

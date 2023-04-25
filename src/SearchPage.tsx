@@ -39,6 +39,10 @@ function SearchPage() {
         setArrival(localName)
     }, []);
 
+
+
+    //fetch the API according to what the user enters for the departure city
+
     useEffect(() =>{
         if (searchWord !== "") {
         fetch(`https://api.comparatrip.eu/cities/autocomplete/?q=${searchWord}`)
@@ -51,6 +55,8 @@ function SearchPage() {
         }
     }, [searchWord])
 
+
+    //fetch the API according to what the user enters for the arrival city
     useEffect(() =>{
         if (searchWordArrival !== "") {
         fetch(`https://api.comparatrip.eu/cities/autocomplete/?q=${searchWordArrival}`)
@@ -62,6 +68,8 @@ function SearchPage() {
         }
     }, [searchWordArrival])
 
+
+    //fetch popular cities by arrival city
     useEffect(() =>{
         if(arrival !== "" ){
             fetch(`https://api.comparatrip.eu/cities/popular/from/${arrival.toLowerCase()}/5`)
@@ -73,6 +81,8 @@ function SearchPage() {
         }
     }, [arrival])
 
+
+    //fetch popular cities by departure city
     useEffect(() =>{
         if (departure !== ""){
             fetch(`https://api.comparatrip.eu/cities/popular/from/${departure.toLowerCase()}/5`)
@@ -108,6 +118,8 @@ function SearchPage() {
                         ></input>
                     </div>
                 </div>
+
+                {/* search cities for departure city*/}
                 {searchWord !== "" && (
                     <ul>
                         {town.map(t => (
@@ -117,6 +129,8 @@ function SearchPage() {
                         ))}
                     </ul>
                     )}
+
+            {/* search cities for arrival city*/}
                     {searchWordArrival !== "" && (
                     <ul>
                         {townArrival.map(t => (
@@ -126,6 +140,8 @@ function SearchPage() {
                         ))}
                     </ul>
                     )}
+
+                    {/* popular cities for arrival city*/}
                     {searchWordArrival.length <= 1 &&(
                     <ul>
                         <p className='textSeparator'>Destinations populaires :</p>
@@ -136,6 +152,8 @@ function SearchPage() {
                         ))}
                     </ul>
                     )}
+
+                    {/* popular cities for departure city*/}
                     {searchWord.length <= 1 &&(
                     <ul>
                         <p className='textSeparator'>Destinations populaires :</p>

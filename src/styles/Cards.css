@@ -18,7 +18,7 @@
 
 .card{
     opacity: 0;
-    background-color: #fff;
+    background-color: var(--white-color);
     border-radius: 10px;
     overflow: hidden;
     transition: ease 0.2s;
@@ -80,7 +80,7 @@
     display: flex;
     justify-content: center;
     padding: 16px 0;
-    border-top:1px solid #f3f3f8 ;
+    border-top:1px solid var(--gray-color) ;
 }
 
 .cardLink svg{
@@ -156,7 +156,7 @@
         display: flex;
         justify-content: center;
         padding: 16px 0;
-        border-top: 1px solid #f3f3f8;
+        border-top: 1px solid var(--gray-color);
     }
 }
 
