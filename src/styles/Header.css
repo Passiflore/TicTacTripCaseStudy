@@ -38,7 +38,6 @@ nav h5{
 }
 
 @media screen and (max-width: 900px) {
-
     .headerLogo{
         width:18vw;
         padding:0 5vw
@@ -101,7 +100,6 @@ nav h5{
 }
 
 @media screen and (max-width: 450px) {
-
     .headerLogo{
         width:18vw;
         padding:0 5vw

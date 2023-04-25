@@ -15,6 +15,7 @@
     color: #ffffff;
     font-size:34px;
     line-height: 44px;
+    width: 80%;
 }
 
 /* .searchBarComponentResult{
@@ -34,23 +35,20 @@
 .searchBarComponent input{
     width: 150vw;
     background-color: white;
-    padding: 0 1.5rem;
+    padding: 0 15px;
     border: none;
-    border-radius: 2rem;
-    font-size: 1rem;
+    border-radius: 30px;
+    font-size: 16px;
     color: #0c131f;
-    min-height: 3.5rem;
+    min-height: 56px;
 }
-  
-.searchBarComponent h1{
-    color: #ffffff;
-}
+
   
 .searchButton{
     position: absolute;
     right:0px;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 56px;
+    width: 56px;
     border-radius: 2rem;
     background-color: #8de8fe;
     border: none;
@@ -94,10 +92,6 @@ ul{
     font-family: "AvenirHeavy";
 }
 
-.searchBarComponent ul{
-    top: 610px;
-}
-
 li{
     list-style-type: none;
     width:100%;
@@ -113,4 +107,96 @@ li:hover{
     font-size: 13px;
     color: #494e57;
     padding: 15px 0 0 15px;
+}
+
+@media screen and (max-width: 950px) {
+
+    .seachBarTitle{
+        font-size:28px;
+        line-height: 38px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+
+    .seachBarTitle{
+        font-size:25px;
+        line-height: 30px;
+    }
+
+    /* searchBar*/
+    .searchBarComponent input{
+        min-height: 49px;
+        font-size: 14px;
+    }
+    .searchButton{
+        height: 49px;
+        width: 49px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    /* Title*/
+    .seachBarTitle{
+        font-size:20px;
+        line-height: 30px;
+    }
+
+    /* searchBar*/
+    .searchBarComponent input{
+        min-height: 40px;
+        font-size: 12px;
+    }
+    .searchButton{
+        height: 40px;
+        width: 40px;
+    }
+    .searchButton svg{
+        height: 20px;
+    }
+
+    /* searchBar result */
+    .searchBarComponent a{
+        font-size: 13px;
+    }
+    li{
+        padding:15px;
+    }
+    .textSeparator{
+        font-size: 13px;
+        padding: 10px 0 0 10px;
+    }
+}
+@media screen and (max-width: 450px) {
+
+    .seachBarTitle{
+        font-size:18px;
+        line-height: 28px;
+    }
+
+    /* searchBar*/
+    .searchBarComponent input{
+        min-height: 40px;
+        font-size: 12px;
+    }
+    .searchButton{
+        height: 40px;
+        width: 40px;
+    }
+    .searchButton svg{
+        height: 20px;
+    }
+
+    /* searchBar result */
+    .searchBarComponent a{
+        font-size: 12px;
+    }
+    li{
+        padding:10px;
+    }
+    .textSeparator{
+        font-size: 10px;
+        padding: 10px 0 0 10px;
+    }
 }
