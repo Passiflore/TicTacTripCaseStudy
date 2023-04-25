@@ -28,7 +28,6 @@ const SearchBar: React.FC = () => {
 
     // récolter ce qu'écrit l'utilisateur
     function searchState(test: string){
-        console.log(test)
         setSearchWord(test)
     }
 
@@ -89,31 +88,32 @@ useEffect(() =>{
         <div className={`overlay ${isSearchBarActive ? 'active' : ''}`} onClick={closeOverlay}/>
         {town.length > 0 && (
             <ul>
-            {town.map(t => (
-                <li key={t.local_name}>
-                    <Link 
-                        to=
-                            '/searchPage'
-                        state = {{
-                            arrival: t.unique_name
-                    }}>
-                        <span>{t.local_name}</span>
-                    </Link>
-                </li>
-            ))}
-            <p className='textSeparator'>Départ de :</p>
-            {townDeparture.length > 0 ? townDeparture.map(t => (
-                <li key={t.local_name}>
-                    <Link 
-                        to=
-                            '/searchPage'
-                        state = {{
-                            departure: t.unique_name
-                    }}>
-                        <span>{t.local_name}</span>
-                    </Link>
-                </li>
-            )): null}
+                <p className='textSeparator'>Destinations :</p>
+                {town.map(t => (
+                    <li key={t.local_name}>
+                        <Link 
+                            to=
+                                '/searchPage'
+                            state = {{
+                                arrival: t.unique_name
+                        }}>
+                            <span>{t.local_name}</span>
+                        </Link>
+                    </li>
+                ))}
+                <p className='textSeparator'>Départ de :</p>
+                {townDeparture.length > 0 ? townDeparture.map(t => (
+                    <li key={t.local_name}>
+                        <Link 
+                            to=
+                                '/searchPage'
+                            state = {{
+                                departure: t.unique_name
+                        }}>
+                            <span>{t.local_name}</span>
+                        </Link>
+                    </li>
+                )): null}
             </ul>
         )} 
         {town.length === 0 && isSearchBarActive == true &&(
