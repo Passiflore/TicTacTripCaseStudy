@@ -1,19 +1,24 @@
 import './SearchPage.css'
 import Header from './components/Header'
-import React, {useEffect, useState, useCallback} from 'react'
+import React, {useEffect, useState, useCallback, ChangeEvent} from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 function SearchPage() {
     const location = useLocation();
     const [searchWord, setSearchWord] = useState("");
+    const [searchWordArrival, setSearchWordArrival] = useState("");
     const [town, setTown] = useState<any[]>([]);
-    const [townDeparture, setTownDeparture] = useState<any[]>([]);
-    const [townPopular, setTownPopular] = useState<any[]>([]);
-    const [selectedTown, setSelectedTown] = useState('');
-    const [searchText, setSearchText] = useState('');
+    const [townArrival, setTownArrival] = useState<any[]>([]);
+    const [departure, setDeparture] = useState(location.state.departure || "");
+    const [arrival, setArrival] = useState(location.state.arrival || "");
 
-    function searchState(test: string){
-        setSearchWord(test)
+    function searchState(event: ChangeEvent<HTMLInputElement>){
+        setDeparture(event.target.value)
+        setSearchWord(event.target.value)
+    }
+    function searchStateArrival(event: ChangeEvent<HTMLInputElement>){
+        setArrival(event.target.value)
+        setSearchWordArrival(event.target.value)
     }
 
     function capitalize(str : string){
@@ -22,13 +27,14 @@ function SearchPage() {
         }
     }
 
-    // const closeOverlay = () => {
-    //     setIsSearchBarActive(false);
-    // };
-
     const handleClick = useCallback((localName: string) => () => {
-        setSelectedTown(localName);
         setSearchWord(localName);
+        setDeparture(localName)
+    }, []);
+
+    const handleClickArrival = useCallback((localName: string) => () => {
+        setSearchWordArrival(localName);
+        setArrival(localName)
     }, []);
 
     useEffect(() =>{
@@ -43,20 +49,30 @@ function SearchPage() {
     }, [searchWord])
 
     useEffect(() =>{
-        fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.arrival}/5`)
+        if (searchWordArrival !== "") {
+        fetch(`https://api.comparatrip.eu/cities/autocomplete/?q=${searchWordArrival}`)
             .then(response => response.json())
-            .then(data => setTown(data))
+            .then(data => setTownArrival(data))
             .catch(error => console.error(error));
-    }, [location.state.arrival])
-    console.log(town)
+        } else {
+            setTown([]);
+        }
+    }, [searchWordArrival])
 
-    useEffect(() =>{
-        fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.departure}/5`)
-            .then(response => response.json())
-            .then(data => setTown(data))
-            .catch(error => console.error(error));
-    }, [location.state.departure])
-    console.log(town)
+    // useEffect(() =>{
+    //     fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.arrival}/5`)
+    //         .then(response => response.json())
+    //         .then(data => setTown(data))
+    //         .catch(error => console.error(error));
+    // }, [location.state.arrival])
+    // console.log(town)
+
+    // useEffect(() =>{
+    //     fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.departure}/5`)
+    //         .then(response => response.json())
+    //         .then(data => setTownArival(data))
+    //         .catch(error => console.error(error));
+    // }, [location.state.departure])
 
     // useEffect(() =>{
     //     if (searchWord == "") {
@@ -77,30 +93,40 @@ function SearchPage() {
                 <div className='searchBar'>
                     <div className='searchPageInput departureInput'>
                         Départ :
-                        <input 
-                        type= "text"
-                        placeholder="D'où partons-nous ?" 
-                        value ={searchWord}
-                        defaultValue={selectedTown || capitalize(location.state.departure)}
-                        onChange= {event => {searchState(event.target.value)}}
+                        <input
+                            type="text"
+                            placeholder="D'où partons-nous ?"
+                            value={departure}
+                            onChange={searchState}
                         ></input>
                     </div>
                     <div className='searchPageInput arrivalInput'>
                         Arrivée :
-                        <input placeholder="Où allons nous ?" defaultValue={capitalize(location.state.arrival)}></input>
+                        <input
+                        placeholder="Où allons nous ?"
+                        value={arrival}
+                        onChange={searchStateArrival}
+                        ></input>
                     </div>
                 </div>
-                {/* <div className={`overlay ${isSearchBarActive ? 'active' : ''}`} onClick={closeOverlay}/> */}
-                {town.length > 0 && (
+                {searchWord !== "" && (
                     <ul>
-                    {town.map(t => (
+                        {town.map(t => (
                         <li onClick={handleClick(t.local_name)} key={t.unique_name}>
                             <span>{t.local_name}</span>
                         </li>
-                    ))}
+                        ))}
                     </ul>
-                )}
-                
+                    )}
+                    {searchWordArrival !== "" && (
+                    <ul>
+                        {townArrival.map(t => (
+                        <li onClick={handleClickArrival(t.local_name)} key={t.unique_name}>
+                            <span>{t.local_name}</span>
+                        </li>
+                        ))}
+                    </ul>
+                    )}
             </body>
         </>
     )
