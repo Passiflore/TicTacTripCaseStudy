@@ -11,6 +11,8 @@ function SearchPage() {
     const [townArrival, setTownArrival] = useState<any[]>([]);
     const [departure, setDeparture] = useState(location.state.departure || "");
     const [arrival, setArrival] = useState(location.state.arrival || "");
+    const [townPopular, setTownPopular] = useState<any[]>([]);
+    const [townArrivalPopular, setTownArrivalPopular] = useState<any[]>([]);
 
     function searchState(event: ChangeEvent<HTMLInputElement>){
         setDeparture(event.target.value)
@@ -59,20 +61,27 @@ function SearchPage() {
         }
     }, [searchWordArrival])
 
-    // useEffect(() =>{
-    //     fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.arrival}/5`)
-    //         .then(response => response.json())
-    //         .then(data => setTown(data))
-    //         .catch(error => console.error(error));
-    // }, [location.state.arrival])
-    // console.log(town)
+    useEffect(() =>{
+        if(arrival !== "" ){
+            fetch(`https://api.comparatrip.eu/cities/popular/from/${arrival.toLowerCase()}/5`)
+            .then(response => response.json())
+            .then(data => setTownArrivalPopular(data))
+            .catch(error => console.error(error));
+        } else {
+            setTownArrival([]);
+        }
+    }, [townArrival, arrival])
 
-    // useEffect(() =>{
-    //     fetch(`https://api.comparatrip.eu/cities/popular/from/${location.state.departure}/5`)
-    //         .then(response => response.json())
-    //         .then(data => setTownArival(data))
-    //         .catch(error => console.error(error));
-    // }, [location.state.departure])
+    useEffect(() =>{
+        if (departure !== ""){
+            fetch(`https://api.comparatrip.eu/cities/popular/from/${departure.toLowerCase()}/5`)
+            .then(response => response.json())
+            .then(data => setTown(data))
+            .catch(error => console.error(error));
+        }else{
+            setTown([]);
+        }
+        }, [departure])
 
     // useEffect(() =>{
     //     if (searchWord == "") {
@@ -96,7 +105,7 @@ function SearchPage() {
                         <input
                             type="text"
                             placeholder="D'où partons-nous ?"
-                            value={departure}
+                            value={capitalize(departure)}
                             onChange={searchState}
                         ></input>
                     </div>
@@ -104,7 +113,7 @@ function SearchPage() {
                         Arrivée :
                         <input
                         placeholder="Où allons nous ?"
-                        value={arrival}
+                        value={capitalize(arrival)}
                         onChange={searchStateArrival}
                         ></input>
                     </div>
@@ -127,6 +136,27 @@ function SearchPage() {
                         ))}
                     </ul>
                     )}
+                    {townArrival.length === 0 &&(
+                    <ul>
+                        <p className='textSeparator'>Destinations populaires :</p>
+                        {townArrivalPopular.map(t => (
+                            <li onClick={handleClick(t.local_name)} key={t.local_name}>
+                                <span>{t.local_name}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    )}
+                    {town.length === 0 &&(
+                    <ul>
+                        <p className='textSeparator'>Destinations populaires :</p>
+                        {townPopular.map(t => (
+                            <li onClick={handleClickArrival(t.local_name)} key={t.local_name}>
+                                <span>{t.local_name}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    )
+                }
             </body>
         </>
     )
