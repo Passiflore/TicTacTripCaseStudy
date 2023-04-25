@@ -78,4 +78,13 @@
       font-size:18px;
       line-height: 28px;
   }
+  .navLineTransport svg{
+  display: none;
+  }
+  .navLineTransport{
+    text-align: center;
+    }
+    .navLineTransport:first-child{
+      padding-left:10px;
+      }
 }
