@@ -1,5 +1,6 @@
 
 .searchBarComponent{
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,9 +16,12 @@
     font-size:34px;
     line-height: 44px;
 }
+
+/* .searchBarComponentResult{
+    position: relative;
+} */
   
 .seachBarInput{
-    /* position: sticky; */
     position: relative;
     width: 80vw;
     justify-content: space-between;
@@ -91,7 +95,7 @@ ul{
 }
 
 .searchBarComponent ul{
-    top:530px;
+    top: 610px;
 }
 
 li{
