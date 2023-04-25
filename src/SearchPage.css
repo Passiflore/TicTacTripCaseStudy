@@ -2,7 +2,7 @@ body.bodySearchPage{
     background-color: #f3f3f8;
     height: 750px;
     margin:0;
-    padding: 48px 80px;
+    padding: 30px 6vw;
     font-family: "AvenirMedium";
 }
 
@@ -14,7 +14,7 @@ body.bodySearchPage{
 }
 
 .searchBar{
-    width:80vw;
+    max-width:80vw;
     background-color: #FFF;
     border-radius: 14px;
 }
@@ -26,4 +26,19 @@ body.bodySearchPage{
 .searchPageInput{
     padding:11px 17px;
     border-bottom:2px solid #f3f3f8;
+}
+
+@media screen and (max-width: 600px) {
+
+    .TitleSearchPage{
+        padding: 0px 30px;
+        font-size: 19px;
+    }
+    /* searchBar result */
+    .bodySearchPage li{
+        font-size: 13px;
+    }
+    li{
+        padding:15px;
+    }
 }
