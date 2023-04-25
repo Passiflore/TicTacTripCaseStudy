@@ -8,6 +8,8 @@ const SearchBar: React.FC = () => {
     const [searchWord, setSearchWord] = useState("");
     const [isSearchBarActive, setIsSearchBarActive] = useState(false);
 
+
+   //raise the search bar
     const handleClick = () => {
         if (searchBarRef.current) {
             const offsetTop = searchBarRef.current.offsetTop;
@@ -25,8 +27,7 @@ const SearchBar: React.FC = () => {
         setIsSearchBarActive(false);
     };
 
-
-    // récolter ce qu'écrit l'utilisateur
+// collect what the user writes
     function searchState(str: string){
         setSearchWord(str)
     }
@@ -36,7 +37,7 @@ const SearchBar: React.FC = () => {
     const [townDeparture, setTownDeparture] = useState<any[]>([]);
     const [townPopular, setTownPopular] = useState<any[]>([]);
 
-  //fetch l'api en fonction de la ville 
+//fetch the api according to the city
 useEffect(() =>{
     if (searchWord !== "") {
     fetch(`https://api.comparatrip.eu/cities/autocomplete/?q=${searchWord}`)
@@ -48,7 +49,7 @@ useEffect(() =>{
     }
 }, [searchWord])
 
-
+//fetch the popular cities according to the city
 useEffect(() =>{
 
     if (searchWord !== "") {
@@ -59,7 +60,7 @@ useEffect(() =>{
     }
 }, [town, searchWord])
 
-
+//fetch the popular cities
 useEffect(() =>{
     if (searchWord == "") {
     fetch(`https://api.comparatrip.eu/cities/popular/5 `)
